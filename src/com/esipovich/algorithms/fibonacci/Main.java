@@ -7,7 +7,7 @@ package com.esipovich.algorithms.fibonacci;
 public class Main {
     public static void main(String[] args) {
         Fibonacci fibonacci = new Fibonacci();
-        long number = fibonacci.findNumber(25, true);
+        long number = fibonacci.findNumber(5, true);
         System.out.println("The number is: " + number);
     }
 }

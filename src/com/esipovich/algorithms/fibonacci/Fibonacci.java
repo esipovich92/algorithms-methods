@@ -18,8 +18,10 @@ public class Fibonacci {
     }
 
     private long findNumberNaive(int index) {
-        if (index <= 1) {
-            return index;
+        if (index == 1) {
+            return 0;
+        } else if (index == 2) {
+            return 1;
         } else {
             return findNumberNaive(index - 1) + findNumberNaive(index - 2);
         }
