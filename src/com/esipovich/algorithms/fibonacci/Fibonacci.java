@@ -7,14 +7,14 @@ import java.util.Scanner;
  *
  * 1) Integer 1 <= n <= 40. Need to find a value at the position n (using stdin and stdout)
  * 2) Integer 1 <= n <= 10^7. Need to find last digit of the n-number (using stdin and stdout)
- *
+ * 3) Integers 1 <= n <= 10^18 and 2 <= m <= 10^5. Find a rest of Fn/m
  */
 
 public class Fibonacci {
 
     public static void main(String[] args) {
 //        System.out.println(findNumberOptimized(getN(1, 40)));
-        System.out.println(findLastDigit(getN(1, (int) Math.pow(10.0, 2.0))));
+        System.out.println(findLastDigit(getN(1, (int) Math.pow(10.0, 7.0))));
     }
 
     private static int getN(int first, int last) {
