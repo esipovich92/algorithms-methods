@@ -1,5 +1,7 @@
 package com.esipovich.algorithms.fibonacci;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,10 +16,11 @@ public class Fibonacci {
 
     public static void main(String[] args) {
 //        System.out.println(findNumberOptimized(getN(1, 40)));
-        System.out.println(findLastDigit(getN(1, (int) Math.pow(10.0, 7.0))));
+//        System.out.println(findLastDigit(getN(1, (int) Math.pow(10.0, 7.0))));
+        System.out.println(readSourceData());
     }
 
-    private static int getN(int first, int last) {
+    private static int readNumber(int first, int last) {
         Scanner scanner = new Scanner(System.in);
         int n;
         do {
@@ -25,6 +28,15 @@ public class Fibonacci {
         } while (n < first || n > last);
 
         return n;
+    }
+
+    private static long readSourceData() {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        String[] numbers = line.split(" ");
+        long n = Long.valueOf(numbers[0]);
+        long m = Long.valueOf(numbers[1]);
+        return findModule(n, m);
     }
 
     private long findNumberNaive(int index) {
@@ -63,4 +75,25 @@ public class Fibonacci {
         return nextLastDigit;
     }
 
+    private static long findModule(long n, long m) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        List<Long> pizanoPeriod = new ArrayList<>();
+        pizanoPeriod.add(0L);
+        pizanoPeriod.add(1L);
+
+        for (int i = 2; i < m * 6; i++) {
+            pizanoPeriod.add((pizanoPeriod.get(i - 1) + pizanoPeriod.get(i - 2)) % m);
+
+            if (pizanoPeriod.get(i) == 1 && pizanoPeriod.get(i - 1) == 0) {
+                break;
+            }
+        }
+
+        int indexOfPizanoElement = (int) (n % (pizanoPeriod.size() - 2));
+
+        return pizanoPeriod.get(indexOfPizanoElement);
+    }
 }
