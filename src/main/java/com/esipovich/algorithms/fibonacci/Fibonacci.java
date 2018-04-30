@@ -4,7 +4,6 @@ import com.esipovich.algorithms.helper.TrackableAlghorithm;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author Artem Esipovich 21.03.2018
@@ -17,35 +16,18 @@ import java.util.Scanner;
 public class Fibonacci extends TrackableAlghorithm {
 
     public static void main(String[] args) {
-        new Fibonacci().trackTime();
+        new Fibonacci().runWithTrack();
     }
 
     @Override
     public void run() {
-        System.out.println(findNumberOptimized(10));
-//        System.out.println(findLastDigit(getN(1, (int) Math.pow(10.0, 7.0))));
-//        System.out.println(readSourceData());
+//        System.out.println(findNumberNaive(40));
+        System.out.println(findNumberOptimized(40));
+//        System.out.println(findLastDigit(40));
+//        System.out.println(findModule(15, 22));
     }
 
-    private static int readNumber(int first, int last) {
-        Scanner scanner = new Scanner(System.in);
-        int n;
-        do {
-            n = scanner.nextInt();
-        } while (n < first || n > last);
-
-        return n;
-    }
-
-    private static long readSourceData() {
-        Scanner scanner = new Scanner(System.in);
-        String line = scanner.nextLine();
-        String[] numbers = line.split(" ");
-        long n = Long.valueOf(numbers[0]);
-        long m = Long.valueOf(numbers[1]);
-        return findModule(n, m);
-    }
-
+    //Task 1
     private long findNumberNaive(int index) {
         if (index <= 2) {
             return 1;
@@ -54,6 +36,7 @@ public class Fibonacci extends TrackableAlghorithm {
         }
     }
 
+    //Task 1
     private static long findNumberOptimized(int index) {
         int fibonacci[] = new int[index];
         if (index <= 1){
@@ -67,6 +50,7 @@ public class Fibonacci extends TrackableAlghorithm {
         return fibonacci[index-1];
     }
 
+    //Task 2
     private static long findLastDigit(int index) {
         if (index <= 2){
             return 1;
@@ -82,6 +66,7 @@ public class Fibonacci extends TrackableAlghorithm {
         return nextLastDigit;
     }
 
+    //Task 3
     private static long findModule(long n, long m) {
         if (n == 0 || n == 1) {
             return n;

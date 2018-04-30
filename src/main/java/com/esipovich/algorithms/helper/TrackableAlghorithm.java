@@ -8,7 +8,7 @@ public abstract class TrackableAlghorithm {
 
     public abstract void run();
 
-    public void trackTime(){
+    public void runWithTrack(){
         long startTime = System.currentTimeMillis();
         run();
         long endTime = System.currentTimeMillis();
