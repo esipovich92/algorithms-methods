@@ -1,4 +1,4 @@
-package com.esipovich.algorithms.greatestcommondivisor;
+package com.esipovich.algorithms.greatest_common_divisor;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 1) 1 <= a,b <= 2⋅10^9. Find Greatest Common Divisor (GCD)
  */
 
-public class GCD {
+public class GreatestCommonDivisor {
     public static void main(String[] args) {
         System.out.println(findGcdNaive(18, 27));
         System.out.println(readSourceData());

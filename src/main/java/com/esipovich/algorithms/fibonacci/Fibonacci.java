@@ -1,5 +1,7 @@
 package com.esipovich.algorithms.fibonacci;
 
+import com.esipovich.algorithms.helper.TrackableAlghorithm;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,12 +14,17 @@ import java.util.Scanner;
  * 3) Integers 1 <= n <= 10^18 and 2 <= m <= 10^5. Find a rest of Fn/m
  */
 
-public class Fibonacci {
+public class Fibonacci extends TrackableAlghorithm {
 
     public static void main(String[] args) {
-//        System.out.println(findNumberOptimized(getN(1, 40)));
+        new Fibonacci().trackTime();
+    }
+
+    @Override
+    public void run() {
+        System.out.println(findNumberOptimized(10));
 //        System.out.println(findLastDigit(getN(1, (int) Math.pow(10.0, 7.0))));
-        System.out.println(readSourceData());
+//        System.out.println(readSourceData());
     }
 
     private static int readNumber(int first, int last) {
